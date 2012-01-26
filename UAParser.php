@@ -193,6 +193,10 @@ class UA {
 	* Logs the user agent info
 	*/
 	private function log($data) {
+		if (!$data) {
+			$data = new stdClass();
+			$data->ua = self::$ua;
+		} 
 		$jsonData = json_encode($data);
 		$fp = fopen(__DIR__."/log/user_agents.log", "a");
 		fwrite($fp, $jsonData."\r\n");
