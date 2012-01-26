@@ -23,23 +23,46 @@ class UA {
 	private static $ua;
 	private static $regexes;
 	
+	private static $debug = false;
+	
+	/**
+	* Sets up some standard variables as well as started the user agent parsing process
+	*
+	* @return {Object}       the result of the user agent parsing
+	*/
 	public function parse() {
 		
 		self::$ua      = $_SERVER["HTTP_USER_AGENT"];
 		self::$regexes = Spyc::YAMLLoad(__DIR__."/resources/user_agents_regex.yaml");
 		
-		foreach (self::$regexes['user_agent_parsers'] as $regex) {
-			if ($result = self::uaParser($regex)) {
+		// run the regexes to match things up
+		$uaRegexes = self::$regexes['user_agent_parsers'];
+		foreach ($uaRegexes as $uaRegex) {
+			if ($result = self::uaParser($uaRegex)) {
 				$result->uaOriginal = self::$ua;
 				break;
 			}
 		}
 		
+		// log the results when testing
+		if (self::$debug) {
+			self::log($result);
+		}
+		
 		return $result;
 	}
 	
+	/**
+	* Attemps to see if the user agent matches the regex for this test. If so it populates an obj
+	* with properties based on the user agent. Will also try to fetch OS & device properties
+	*
+	* @param  {Array}        the regex to be tested as well as any extra variables that need to be swapped
+	*
+	* @return {Object}       the result of the user agent parsing
+	*/
 	private function uaParser($regex) {
 		
+		// tests the supplied regex against the user agent
 		if (preg_match("/".str_replace("/","\/",$regex['regex'])."/",self::$ua,$matches)) {
 			
 			// build the obj that will be returned
@@ -79,6 +102,7 @@ class UA {
 				$obj = (object) array_merge((array) $obj, (array) $deviceObj);
 			}
 			
+			// create an attribute combinining browser and os
 			if ($obj->osFull) {
 				$obj->full = $obj->browserFull."/".$obj->osFull;
 			}
@@ -90,6 +114,11 @@ class UA {
 		}
 	}
 	
+	/**
+	* If the user agent is matched in uaParser() it also tries to check the OS and get properties
+	*
+	* @return {Object}       the result of the os parsing
+	*/
 	private function osParser() {
 		
 		// build the obj that will be returned
@@ -127,6 +156,11 @@ class UA {
 		return false;
 	}
 	
+	/**
+	* If the user agent is matched in uaParser() it also tries to check the device and get its properties
+	*
+	* @return {Object}       the result of the device parsing
+	*/
 	private function deviceParser() {
 		
 		// build the obj that will be returned
@@ -153,5 +187,15 @@ class UA {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	* Logs the user agent info
+	*/
+	private function log($data) {
+		$jsonData = json_encode($data);
+		$fp = fopen(__DIR__."/log/user_agents.log", "a");
+		fwrite($fp, $jsonData."\r\n");
+		fclose($fp);
 	}
 }
