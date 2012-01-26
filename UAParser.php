@@ -140,14 +140,14 @@ class UA {
 				// basic properties
 				$deviceObj->deviceMajor  = $deviceRegex['device_v1_replacement'] ? $deviceRegex['device_v1_replacement'] : $matches[2];
 				$deviceObj->deviceMinor  = $deviceRegex['device_v2_replacement'] ? $deviceRegex['device_v2_replacement'] : $matches[3];
-				$deviceObj->deviceFamily = $deviceRegex['device_replacement'] ? str_replace("$1",$deviceObj->deviceMajor,$deviceRegex['device_replacement']) : $matches[1];
+				$deviceObj->device       = $deviceRegex['device_replacement'] ? str_replace("$1",$deviceObj->deviceMajor,$deviceRegex['device_replacement']) : $matches[1];
 				
 				// device version?
 				$deviceObj->deviceVersion = isset($deviceObj->deviceMajor) ? $deviceObj->deviceMajor : "";
 				$deviceObj->deviceVersion = isset($deviceObj->deviceMinor) ? $deviceObj->deviceVersion.'.'.$deviceObj->deviceMinor : $deviceObj->deviceVersion;
 				
 				// prettify
-				$deviceObj->devicePretty = $deviceObj->deviceFamily." ".$deviceObj->deviceVersion;
+				$deviceObj->deviceFull = $deviceObj->device." ".$deviceObj->deviceVersion;
 				
 				return $deviceObj;
 			}
