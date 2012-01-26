@@ -42,6 +42,20 @@ Straightforward:
        print $result->osMajor;
        // -> 10 (osMinor, osBuild, & osRevision also available)
 
+       // in select cases the following will also work...
+
+       print $result->deviceFull;
+       // -> "Palm Pixi 1.0"
+       
+       print $result->device;
+       // -> "Palm Pixi"
+
+       print $result->deviceVersion
+       // -> "1.0"
+
+       print $result->deviceMajor;
+       // -> 1 (deviceMinor also available)
+
     ?>
 
 ## Credits ##
