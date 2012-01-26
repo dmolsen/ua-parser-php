@@ -1,12 +1,12 @@
 <?php
 
 /*!
- * UAParser v0.1
+ * ua-parser-php v0.1
  *
  * Copyright (c) 2011-2012 Dave Olsen, http://dmolsen.com
  * Licensed under the MIT license
  *
- * UAParser is a PHP pseudo-port of the ua-parser project. Learn more about the ua-parser project at:
+ * ua-parser-php is a PHP-based pseudo-port of the ua-parser project. Learn more about the ua-parser project at:
  * 
  * http://code.google.com/p/ua-parser/
  *
