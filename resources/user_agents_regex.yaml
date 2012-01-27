@@ -354,6 +354,8 @@ os_parsers:
   - regex: '(Series 60|SymbOS|S60)'
     os_replacement: 'Symbian OS'
   - regex: '(MeeGo)'
+  - regex: 'Symbian [Oo][Ss]'
+    os_replacement: 'Symbian OS'
   
   ##########
   # BlackBerry devices
@@ -451,6 +453,8 @@ device_parsers:
     device_replacement: 'Nokia $1'
   - regex: 'Nokia ([A-Za-z0-9\-]+)'
     device_replacement: 'Nokia $1'
+  - regex: 'Lumia ([A-Za-z0-9\-]+)'
+    device_replacement: 'Lumia $1'
 
   ##########
   # incomplete!
