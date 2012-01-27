@@ -202,4 +202,16 @@ class UA {
 		fwrite($fp, $jsonData."\r\n");
 		fclose($fp);
 	}
+	
+	/**
+	* Gets the latest user agent. Back-ups the old version first. it will fail silently if something is wrong...
+	*/
+	public function get() {
+		if ($data = @file_get_contents("http://ua-parser.googlecode.com/svn/trunk/resources/user_agent_parser.yaml")) {
+			copy(__DIR__."/resources/user_agents_regex.yaml", __DIR__."/resources/user_agents_regex.".date("Ymdhis").".yaml");
+			$fp = fopen(__DIR__."/resources/user_agents_regex.yaml", "w");
+			fwrite($fp, $data);
+			fclose($fp);
+		}
+	}
 }
