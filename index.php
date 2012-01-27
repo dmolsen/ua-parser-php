@@ -4,7 +4,7 @@ require("UAParser.php");
 
 $result = UA::parse();
 
-print "<html><head><title>ua-parser-php</title></head><body><h1>ua-parser-php Test</h1>";
+print "<html><head><meta name=\"viewport\" content=\"width=device-width\"><title>ua-parser-php Example</title></head><body><h1>ua-parser-php Test</h1>";
 print "<p><a href='https://github.com/dmolsen/ua-parser-php'>ua-parser-php</a> is a pseudo-port of <a href='http://code.google.com/p/ua-parser/'>ua-parser</a>. Please use this page to test your browser. ";
 print "<a href='https://github.com/dmolsen/ua-parser-php'>ua-parser-php</a> was developed to help support my <a href='http://detector.dmolsen.com/'>Detector project</a>.</p>";
 
