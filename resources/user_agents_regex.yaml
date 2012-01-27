@@ -1,4 +1,5 @@
-### THIS FILE WAS COPIED ON JAN 26 2012 ###
+### THIS FILE WAS COPIED ON JAN 26 2012.###
+### I have: expanded support for Symbia & Nokia Devices, cleaned up some slashies, added Mobile Safari as a browser replacement, better support for longer HTC device names ###
 ### ORIGINAL IS AT: http://code.google.com/p/ua-parser/source/browse/trunk/resources/user_agent_parser.yaml ###
 user_agent_parsers:
   #### SPECIAL CASES TOP ####
@@ -163,14 +164,21 @@ user_agent_parsers:
     family_replacement: 'Bon Echo'
 
   - regex: '(iPod).+Version/(\d+)\.(\d+)\.(\d+)'
+    family_replacement: 'Mobile Safari'
 
   - regex: '(iPhone) OS (\d+)_(\d+)(?:_(\d+))?'
+    family_replacement: 'Mobile Safari'
 
   - regex: '(iPad).+ OS (\d+)_(\d+)(?:_(\d+))?'
+    family_replacement: 'Mobile Safari'
 
   - regex: '(Avant)'
     v1_replacement: '1'
 
+  - regex: '(NokiaBrowser)/(\d+)\.(\d+).(\d+)\.(\d+)'
+  
+  - regex: '(NokiaBrowser)/(\d+)\.(\d+).(\d+)'
+  
   - regex: '(Nokia)[EN]?(\d+)'
 
   # BlackBerry devices
@@ -345,6 +353,7 @@ os_parsers:
     os_replacement: 'Symbian^3'
   - regex: '(Series 60|SymbOS|S60)'
     os_replacement: 'Symbian OS'
+  - regex: '(MeeGo)'
   
   ##########
   # BlackBerry devices
@@ -425,15 +434,19 @@ device_parsers:
     device_replacement: 'HTC Touch ($1)'
   # should come after HTC_Touch
   - regex: 'HTC_([A-Za-z0-9]+)'
-    device: 'HTC ($1)'
+    device_replacement: 'HTC ($1)'
+  - regex: 'HTC ([A-Za-z0-9]+ [A-Z])'
+    device_replacement: HTC $1
+  - regex: 'HTC ([A-Za-z0-9]+)'
+    device_replacement: HTC $1
   - regex: '(HTC)'
 
   ##########
   # NOKIA 
   # nokia NokiaN8-00 comes before iphone. sometimes spoofs iphone
   ##########
-  - regex: 'Nokia(?!Browser)([A-Za-z0-9\-])+'
-    device_replacement: 'Nokia ($1)'
+  - regex: 'NokiaN([0-9])+'
+    device_replacement: 'Nokia N$1'
   - regex: 'Nokia ([A-Za-z0-9\-]+)'
     device_replacement: 'Nokia ($1)'
 
