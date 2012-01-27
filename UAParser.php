@@ -107,6 +107,13 @@ class UA {
 				$obj->full = $obj->browserFull."/".$obj->osFull;
 			}
 			
+			// detect if this is a uiwebview call on iOS
+			if (($obj->browser == 'Mobile Safari') && !preg_match("/Safari/",self::$ua)) {
+				$obj->uiwebview = true;
+			} else {
+				$obj->uiwebview = false;
+			}
+			
 			return $obj;
 			
 		} else {
