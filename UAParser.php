@@ -108,10 +108,17 @@ class UA {
 			}
 			
 			// detect if this is a uiwebview call on iOS
-			if (($obj->browser == 'Mobile Safari') && !preg_match("/Safari/",self::$ua)) {
+			if (($obj->browser == 'Mobile Safari') && !strstr(self::$ua,'Safari')) {
 				$obj->uiwebview = true;
 			} else {
 				$obj->uiwebview = false;
+			}
+			
+			// detect if this is a tablet
+			if ((strstr($obj->device, 'Kindle')) || ($obj->device == 'iPad') || (($obj->os == 'Android') && !strstr(self::$ua, 'Mobile'))) {
+				$obj->tablet = true;
+			} else {
+				$obj->tablet = false;
 			}
 			
 			return $obj;
