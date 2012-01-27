@@ -465,6 +465,15 @@ device_parsers:
     device_replacement: 'Palm Pre'
   - regex: '(Pixi)/(\d+)\.(\d+)'
     device_replacement: 'Palm Pixi'
+    
+  ##########
+  # incomplete!
+  # Kindle
+  ##########
+  - regex: '(Kindle Fire)'
+  - regex: '(Kindle)'
+  - regex: '(Silk)/(\d+)\.(\d+)(?:\.([0-9\-]+))?'
+    device_replacement: 'Kindle'
 
   ##########
   # complete but probably catches spoofs
