@@ -354,6 +354,8 @@ os_parsers:
   - regex: '(Series 60|SymbOS|S60)'
     os_replacement: 'Symbian OS'
   - regex: '(MeeGo)'
+  - regex: 'Symbian [Oo][Ss]'
+    os_replacement: 'Symbian OS'
   
   ##########
   # BlackBerry devices
@@ -445,10 +447,14 @@ device_parsers:
   # NOKIA 
   # nokia NokiaN8-00 comes before iphone. sometimes spoofs iphone
   ##########
-  - regex: 'NokiaN([0-9])+'
+  - regex: 'NokiaN([0-9]+)'
     device_replacement: 'Nokia N$1'
+  - regex: 'Nokia([0-9]+)'
+    device_replacement: 'Nokia $1'
   - regex: 'Nokia ([A-Za-z0-9\-]+)'
-    device_replacement: 'Nokia ($1)'
+    device_replacement: 'Nokia $1'
+  - regex: 'Lumia ([A-Za-z0-9\-]+)'
+    device_replacement: 'Lumia $1'
 
   ##########
   # incomplete!
