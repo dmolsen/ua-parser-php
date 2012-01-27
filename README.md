@@ -1,7 +1,7 @@
 # ua-parser-php #
 
-ua-parser-php is a PHP-based pseudo-port of the [ua-parser](http://code.google.com/p/ua-parser/) project. ua-parser-php
-utilizes the user agents regex YAML file from ua-parser but otherwise creates it's own properties for use in projects. ua-parser-php
+`ua-parser-php` is a PHP-based pseudo-port of the [ua-parser](http://code.google.com/p/ua-parser/) project. `ua-parser-php`
+utilizes the user agents regex YAML file from ua-parser but otherwise uses it's own set of attributes. `ua-parser-php`
 was created as a new browser-detection library for the browser- and feature-detection library [Detector](https://github.com/dmolsen/Detector).
 
 If you want, you can [test ua-parser-php](http://uaparser.dmolsen.com/) with your browser.
@@ -59,6 +59,18 @@ Straightforward:
        // -> 1 (deviceMinor also available)
 
     ?>
+
+If you want to grab a copy of the YAML data from ua-parser each night you can use a cron job and point it at the following bit of code:
+
+    <?php
+
+       require("UAParser.php");
+       $result = UA::get();
+
+    ?>
+
+**NOTE:** This will overwrite some changes I've made to the `user_agents_regex.yaml` file included with the `ua-parser-php` distribution.
+
 
 ## Credits ##
 
