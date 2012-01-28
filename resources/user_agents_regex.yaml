@@ -10,6 +10,7 @@
 ###   - added AvantGo to the ua check
 ###   - tweaked a lot of the nokia checks
 ###   - added kindle support to the device section
+###   - added a generic catch for android devices.
 user_agent_parsers:
   #### SPECIAL CASES TOP ####
 
