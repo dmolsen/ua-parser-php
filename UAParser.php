@@ -21,6 +21,7 @@ require(__DIR__."/lib/spyc-0.5/spyc.php");
 class UA {
 	
 	private static $ua;
+	private static $accept;
 	private static $regexes;
 	
 	private static $debug = false;
@@ -33,6 +34,7 @@ class UA {
 	public function parse() {
 		
 		self::$ua      = $_SERVER["HTTP_USER_AGENT"];
+		self::$accept  = $_SERVER["HTTP_ACCEPT"];
 		self::$regexes = Spyc::YAMLLoad(__DIR__."/resources/user_agents_regex.yaml");
 		
 		// run the regexes to match things up
@@ -44,6 +46,20 @@ class UA {
 			}
 		}
 		
+		// if no browser was found check to see if it can be matched at least against a device (e.g. spider, generic feature phone or generic smartphone)
+		if (!$result) {
+			$result = self::deviceParser();
+		}
+		
+		// still false?! see if it's a really dumb feature phone
+		if (!$result) {
+			if ((strpos(self::$accept,'text/vnd.wap.wml') > 0) || (strpos(self::$accept,'application/vnd.wap.xhtml+xml') > 0) || isset($_SERVER['HTTP_X_WAP_PROFILE']) || isset($_SERVER['HTTP_PROFILE'])) {
+				$result = new stdClass();
+				$result->device     = "Generic Feature Phone";
+				$result->deviceFull = "Generic Feature Phone";
+			}
+		}
+
 		// log the results when testing
 		if (self::$debug) {
 			self::log($result);
@@ -183,7 +199,7 @@ class UA {
 		// run the regexes to match things up
 		$deviceRegexes = self::$regexes['device_parsers'];
 		foreach ($deviceRegexes as $deviceRegex) {
-			if (preg_match("/".str_replace("/","\/",$deviceRegex['regex'])."/",self::$ua,$matches)) {
+			if (preg_match("/".str_replace("/","\/",$deviceRegex['regex'])."/i",self::$ua,$matches)) {
 				
 				// basic properties
 				$deviceObj->deviceMajor  = $deviceRegex['device_v1_replacement'] ? $deviceRegex['device_v1_replacement'] : $matches[2];
