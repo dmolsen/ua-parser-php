@@ -1,6 +1,16 @@
-### THIS FILE WAS COPIED ON JAN 26 2012.###
-### I have: expanded support for Symbia & Nokia Devices, cleaned up some slashies, added Mobile Safari as a browser replacement, better support for longer HTC device names ###
-### ORIGINAL IS AT: http://code.google.com/p/ua-parser/source/browse/trunk/resources/user_agent_parser.yaml ###
+### THIS FILE WAS COPIED ON JAN 26 2012.
+### ORIGINAL IS AT: http://code.google.com/p/ua-parser/source/browse/trunk/resources/user_agent_parser.yaml
+### Since then I have:
+###   - expanded support for Symbia & Nokia Devices, 
+###   - cleaned up some slashies, 
+###   - added Mobile Safari as the family replacement for iOS devices, 
+###   - better support for longer HTC device names
+###   - added feature phones to the device check
+###   - added generic smartphones to the device check
+###   - added AvantGo to the ua check
+###   - tweaked a lot of the nokia checks
+###   - added kindle support to the device section
+###   - added a generic catch for android devices.
 user_agent_parsers:
   #### SPECIAL CASES TOP ####
 
@@ -9,7 +19,11 @@ user_agent_parsers:
     family_replacement: 'Wii'
 
   # must go before Firefox to catch SeaMonkey.
-  - regex: '(SeaMonkey|Fennec|Camino)/(\d+)\.(\d+)\.?([ab]?\d+[a-z]*)'
+  - regex: '(SeaMonkey|Camino)/(\d+)\.(\d+)\.?([ab]?\d+[a-z]*)'
+  
+  # must go before Firefox to catch mobile firefox
+  - regex: '(Fennec)/(\d+)\.(\d+)\.?([ab]?\d+[a-z]*)'
+    family_replacement: 'Firefox Mobile'
 
   # must go before Firefox
 
@@ -177,10 +191,22 @@ user_agent_parsers:
   - regex: '(Avant)'
     v1_replacement: '1'
 
+  # nokia browsers
+  # based on: http://www.developer.nokia.com/Community/Wiki/User-Agent_headers_for_Nokia_devices
+  - regex: '^(Nokia)'
+    family_replacement: 'Nokia Services (WAP) Browser' 
   - regex: '(NokiaBrowser)/(\d+)\.(\d+).(\d+)\.(\d+)'
-  
   - regex: '(NokiaBrowser)/(\d+)\.(\d+).(\d+)'
-  
+  - regex: '(BrowserNG)/(\d+)\.(\d+).(\d+)'
+    family_replacement: 'NokiaBrowser'
+  - regex: '(Series60)/5\.0'
+    family_replacement: 'NokiaBrowser'
+    v1_replacement: '7'
+    v2_replacement: '0'
+  - regex: '(Series60)/(\d+)\.(\d+)'
+    family_replacement: 'Nokia OSS Browser'
+  - regex: '(S40OviBrowser)/(\d+)\.(\d+)\.(\d+)\.(\d+)'
+    family_replacement: 'Nokia Series 40 Ovi Browser'
   - regex: '(Nokia)[EN]?(\d+)'
 
   # BlackBerry devices
@@ -431,18 +457,26 @@ device_parsers:
     device_replacement: 'HTC ($1)'
   # example: Mozilla/5.0 (Linux; U; Android 2.1; es-es; HTC Legend 1.23.161.1 Build/ERD79) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17,gzip
   - regex: 'HTC ([A-Z][a-z0-9 ]+) \d+\.\d+\.\d+\.\d+'
-    device_replacement: 'HTC ($1) ($2)'
+    device_replacement: 'HTC $1'
   # example: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5.3.5)
   - regex: 'HTC_Touch_([A-Za-z0-9]+)'
     device_replacement: 'HTC Touch ($1)'
   # should come after HTC_Touch
   - regex: 'HTC_([A-Za-z0-9]+)'
-    device_replacement: 'HTC ($1)'
+    device_replacement: 'HTC $1'
   - regex: 'HTC ([A-Za-z0-9]+ [A-Z])'
     device_replacement: HTC $1
   - regex: 'HTC ([A-Za-z0-9]+)'
-    device_replacement: HTC $1
+    device_replacement: 'HTC $1'
   - regex: '(HTC)'
+  
+  #########
+  # Android General Device Matching (far from perfect)
+  #########
+  - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; WOWMobile (.+) Build'
+  - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; (.+)\_(.+) Build'
+  - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; (.+) Build'
+  
 
   ##########
   # NOKIA 
@@ -450,12 +484,14 @@ device_parsers:
   ##########
   - regex: 'NokiaN([0-9]+)'
     device_replacement: 'Nokia N$1'
-  - regex: 'Nokia([0-9]+)'
+  - regex: 'Nokia([A-Za-z0-9\v-]+)'
     device_replacement: 'Nokia $1'
   - regex: 'Nokia ([A-Za-z0-9\-]+)'
     device_replacement: 'Nokia $1'
   - regex: 'Lumia ([A-Za-z0-9\-]+)'
     device_replacement: 'Lumia $1'
+  - regex: 'Symbian'
+    device_replacement: 'Nokia'
 
   ##########
   # incomplete!
