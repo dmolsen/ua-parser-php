@@ -18,7 +18,11 @@ user_agent_parsers:
     family_replacement: 'Wii'
 
   # must go before Firefox to catch SeaMonkey.
-  - regex: '(SeaMonkey|Fennec|Camino)/(\d+)\.(\d+)\.?([ab]?\d+[a-z]*)'
+  - regex: '(SeaMonkey|Camino)/(\d+)\.(\d+)\.?([ab]?\d+[a-z]*)'
+  
+  # must go before Firefox to catch mobile firefox
+  - regex: '(Fennec)/(\d+)\.(\d+)\.?([ab]?\d+[a-z]*)'
+    family_replacement: 'Firefox Mobile'
 
   # must go before Firefox
 
