@@ -86,8 +86,8 @@ class UA {
 			
 			// build the version numbers for the browser
 			$obj->major  = $regex['v1_replacement'] ? $regex['v1_replacement'] : $matches[2];
-			if (isset($matches[3])) {
-				$obj->minor = $matches[3];
+			if (isset($matches[3]) || isset($regex['v2_replacement'])) {
+				$obj->minor = isset($regex['v2_replacement']) ? $regex['v2_replacement'] : $matches[3];
 			}
 			if (isset($matches[4])) {
 				$obj->build = $matches[4];
@@ -106,7 +106,10 @@ class UA {
 			$obj->version = isset($obj->revision) ? $obj->version.'.'.$obj->revision : $obj->version;
 			
 			// prettify
-			$obj->browserFull = $obj->browser." ".$obj->version;
+			$obj->browserFull = $obj->browser;
+			if ($obj->version != '') {
+				$obj->browserFull .= " ".$obj->version;
+			}
 			
 			// figure out the OS for the browser, if possible
 			if ($osObj = self::osParser()) {
