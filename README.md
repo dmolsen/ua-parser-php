@@ -42,6 +42,9 @@ Straightforward:
        print $result->osMajor;
        // -> 10 (osMinor, osBuild, & osRevision also available)
 
+       print $result->uiwebview;
+       // -> (boolean, would return true if the user agent was from a uiwebview in ios)
+
        /* 
         * in select cases the following will also work...
         */
@@ -57,6 +60,9 @@ Straightforward:
 
        print $result->deviceMajor;
        // -> 1 (deviceMinor also available)
+
+       print $result->tablet;
+       // (boolean, would return true the device was a tablet according to the user agent information)
 
     ?>
 
