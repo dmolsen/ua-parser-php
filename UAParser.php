@@ -27,7 +27,7 @@ class UA {
 	private static $debug = false;
 	
 	/**
-	* Sets up some standard variables as well as started the user agent parsing process
+	* Sets up some standard variables as well as starts the user agent parsing process
 	*
 	* @return {Object}       the result of the user agent parsing
 	*/
