@@ -456,17 +456,17 @@ device_parsers:
     device_replacement: 'HTC ($1)'
   # example: Mozilla/5.0 (Linux; U; Android 2.1; es-es; HTC Legend 1.23.161.1 Build/ERD79) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17,gzip
   - regex: 'HTC ([A-Z][a-z0-9 ]+) \d+\.\d+\.\d+\.\d+'
-    device_replacement: 'HTC ($1) ($2)'
+    device_replacement: 'HTC $1'
   # example: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; HTC_Touch_Diamond2_T5353; Windows Phone 6.5.3.5)
   - regex: 'HTC_Touch_([A-Za-z0-9]+)'
     device_replacement: 'HTC Touch ($1)'
   # should come after HTC_Touch
   - regex: 'HTC_([A-Za-z0-9]+)'
-    device_replacement: 'HTC ($1)'
+    device_replacement: 'HTC $1'
   - regex: 'HTC ([A-Za-z0-9]+ [A-Z])'
     device_replacement: HTC $1
   - regex: 'HTC ([A-Za-z0-9]+)'
-    device_replacement: HTC $1
+    device_replacement: 'HTC $1'
   - regex: '(HTC)'
 
   ##########
