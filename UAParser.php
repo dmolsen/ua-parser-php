@@ -226,6 +226,16 @@ class UA {
 					}
 				}
 
+				// check to see if this is a tablet (not perfect)
+				$deviceObj->isTablet = false;
+				$tablets = array("Kindle","iPad","Playbook","webOSTouchPad");
+				foreach($tablets as $tablet) {
+					if (stristr($deviceObj->device, $tablet)) {
+						$deviceObj->isTablet = true;
+						break;
+					}
+				}
+				
 				return $deviceObj;
 			}
 		}
