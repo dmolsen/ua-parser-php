@@ -10,7 +10,9 @@ print "<a href='https://github.com/dmolsen/ua-parser-php'>ua-parser-php</a> was 
 
 if ($result) {
 	print "<pre>";
-	print_r($result);
+	foreach($result as $key => $value) {
+		print $key.": ".$value."<br />";
+	}
 	print "</pre>";
 } else {
 	print "Sorry, ua-parser-php was unable to match your user agent which was: ";
