@@ -138,6 +138,9 @@ class UA {
 				$obj->tablet = true;
 			} else {
 				$obj->tablet = false;
+			// figure out the device name for the browser, if possible
+			if ($deviceObj = self::deviceParser()) {
+				$obj = (object) array_merge((array) $obj, (array) $deviceObj);
 			}
 			
 			// record if this is a spider
