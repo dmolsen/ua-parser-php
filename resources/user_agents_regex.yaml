@@ -473,7 +473,7 @@ device_parsers:
   # Android General Device Matching (far from perfect)
   #########
   - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; WOWMobile (.+) Build'
-  - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; (.+)\_(.+) Build'
+  - regex: 'Android [\d]+\.[\d]+\.[\d]+; [A-z]{2}\-[A-z]{2}\; (.+) Build'
   - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; (.+) Build'
   
 
