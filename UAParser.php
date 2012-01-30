@@ -55,8 +55,6 @@ class UA {
 		if (!$result) {
 			if ((strpos(self::$accept,'text/vnd.wap.wml') > 0) || (strpos(self::$accept,'application/vnd.wap.xhtml+xml') > 0) || isset($_SERVER['HTTP_X_WAP_PROFILE']) || isset($_SERVER['HTTP_PROFILE'])) {
 				$result = new stdClass();
-				$result->device     = "Generic Feature Phone";
-				$result->deviceFull = "Generic Feature Phone";
 			}
 		}
 
@@ -116,28 +114,13 @@ class UA {
 				$obj = (object) array_merge((array) $obj, (array) $osObj);
 			}
 			
-			// figure out the device name for the browser, if possible
-			if ($deviceObj = self::deviceParser()) {
-				$obj = (object) array_merge((array) $obj, (array) $deviceObj);
-			}
-			
 			// create an attribute combinining browser and os
 			if ($obj->osFull) {
 				$obj->full = $obj->browserFull."/".$obj->osFull;
 			}
 			
-			// detect if this is a uiwebview call on iOS
-			if (($obj->browser == 'Mobile Safari') && !strstr(self::$ua,'Safari')) {
-				$obj->uiwebview = true;
-			} else {
-				$obj->uiwebview = false;
 			}
 			
-			// detect if this is a tablet
-			if ((strstr($obj->device, 'Kindle')) || ($obj->device == 'iPad') || (($obj->os == 'Android') && !strstr(self::$ua, 'Mobile'))) {
-				$obj->tablet = true;
-			} else {
-				$obj->tablet = false;
 			// figure out the device name for the browser, if possible
 			if ($deviceObj = self::deviceParser()) {
 				$obj = (object) array_merge((array) $obj, (array) $deviceObj);
