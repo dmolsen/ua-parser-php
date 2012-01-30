@@ -216,6 +216,16 @@ class UA {
 				// prettify
 				$deviceObj->deviceFull = $deviceObj->device." ".$deviceObj->deviceVersion;
 				
+				// check to see if this is a mobile device
+				$deviceObj->isMobileDevice = false;
+				$mobileDevices  = array("iPhone","iPod","iPad","HTC","Kindle","Lumia","Generic Feature Phone","Generic Smartphone");
+				foreach($mobileDevices as $mobileDevice) {
+					if (stristr($deviceObj->device, $mobileDevice)) {
+						$deviceObj->isMobileDevice = true;
+						break;
+					}
+				}
+
 				return $deviceObj;
 			}
 		}
