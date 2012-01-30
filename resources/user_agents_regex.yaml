@@ -109,8 +109,6 @@ user_agent_parsers:
   - regex: '(konqueror)/(\d+)\.(\d+)\.(\d+)'
     family_replacement: 'Konqueror'
 
-  - regex: '(PlayBook).+RIM Tablet OS (\d+)\.(\d+)\.(\d+)'
-
   - regex: '(WeTab)-Browser'
 
   - regex: '(wOSBrowser).+TouchPad/(\d+)\.(\d+)'
@@ -210,9 +208,10 @@ user_agent_parsers:
   - regex: '(Nokia)[EN]?(\d+)'
 
   # BlackBerry devices
+  - regex: '(PlayBook).+RIM Tablet OS (\d+)\.(\d+)\.(\d+)'
+    family_replacement: 'Blackberry WebKit'
   - regex: '(Black[bB]erry).+Version/(\d+)\.(\d+)\.(\d+)'
-    family_replacement: 'Blackberry'
-
+    family_replacement: 'Blackberry WebKit'
   - regex: '(Black[bB]erry)\s?(\d+)'
     family_replacement: 'Blackberry'
 
@@ -492,6 +491,16 @@ device_parsers:
     device_replacement: 'Lumia $1'
   - regex: 'Symbian'
     device_replacement: 'Nokia'
+    
+  ##########
+  # Blackberry
+  # http://www.useragentstring.com/pages/BlackBerry/
+  ##########
+  - regex: '(PlayBook).+RIM Tablet OS'
+    device_replacement: 'Blackberry Playbook'
+  - regex: '(Black[Bb]erry [0-9]+);'
+  - regex: 'Black[Bb]erry([0-9]+)'
+    device_replacement: 'BlackBerry $1'
 
   ##########
   # incomplete!
