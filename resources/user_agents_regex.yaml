@@ -11,6 +11,8 @@
 ###   - tweaked a lot of the nokia checks
 ###   - added kindle support to the device section
 ###   - added a generic catch for android devices.
+###   - added support for blackberry devices
+###   - changed the blackberry family to 'blackberry webkit' when it's a webkit browser
 user_agent_parsers:
   #### SPECIAL CASES TOP ####
 
