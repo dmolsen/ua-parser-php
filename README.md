@@ -42,11 +42,8 @@ Straightforward:
        print $result->osMajor;
        // -> 10 (osMinor, osBuild, & osRevision also available)
 
-       print $result->uiwebview;
-       // -> (boolean, would return true if the user agent was from a uiwebview in ios)
-
        /* 
-        * in select cases the following will also work...
+        * in select cases the device information will also be captured
         */
 
        print $result->deviceFull;
@@ -61,8 +58,27 @@ Straightforward:
        print $result->deviceMajor;
        // -> 1 (deviceMinor also available)
 
-       print $result->tablet;
-       // (boolean, would return true the device was a tablet according to the user agent information)
+       /*
+        * Some other generic boolean options
+        */
+
+	     print $result->isMobile;
+       // -> (would return true if the browser met the criteria of a mobile browser based on the user agent information)
+
+	     print $result->isMobileDevice;
+       // -> (would return true if the device met the criteria of a mobile device based on the user agent information)
+
+       print $result->isTablet;
+       // -> (would return true if the device was a tablet according to the user agent information)
+
+       print $result->isSpider;
+       // -> (would return true if the device was a spider according to the user agent information)
+
+       print $result->isComputer;
+       // -> (would return true if the device was a computer according to the user agent information)
+
+		   print $result->isUIWebview;
+       // -> (would return true if the user agent was from a uiwebview in ios)
 
     ?>
 
