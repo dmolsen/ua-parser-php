@@ -119,6 +119,13 @@ class UA {
 				$obj->browserFull .= " ".$obj->version;
 			}
 			
+			// detect if this is a uiwebview call on iOS
+			if (($obj->browser == 'Mobile Safari') && !strstr(self::$ua,'Safari')) {
+				$obj->isUIWebview = true;
+			} else {
+				$obj->isUIWebview = false;
+			}
+			
 			// figure out the OS for the browser, if possible
 			if ($osObj = self::osParser()) {
 				$obj = (object) array_merge((array) $obj, (array) $osObj);
