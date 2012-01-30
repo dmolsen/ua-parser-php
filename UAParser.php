@@ -126,6 +126,21 @@ class UA {
 				$obj->isUIWebview = false;
 			}
 			
+			// check to see if this is a mobile browser
+			$obj->isMobile  = false;
+			$mobileBrowsers = array("Firefox Mobile","Opera Mobile","Opera Mini","Mobile Safari","webOS","IE Mobile","Playstation Portable","Nokia","Blackberry","Palm","Silk","Android","Maemo");
+			foreach($mobileBrowsers as $mobileBrowser) {
+				if (stristr($obj->browser, $mobileBrowser)) {
+					$obj->isMobile = true;
+					break;
+				}
+			}
+			
+			// if this is a mobile browser make sure mobile device is set to true
+			if ($obj->isMobile) {
+				$obj->isMobileDevice = true; // this is going to catch android devices
+			}
+			
 			// figure out the OS for the browser, if possible
 			if ($osObj = self::osParser()) {
 				$obj = (object) array_merge((array) $obj, (array) $osObj);
