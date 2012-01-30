@@ -140,6 +140,9 @@ class UA {
 				$obj->tablet = false;
 			}
 			
+			// record if this is a spider
+			$obj->isSpider = ($obj->device == "Spider") ? true : false;
+			
 			return $obj;
 			
 		} else {
