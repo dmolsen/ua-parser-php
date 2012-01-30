@@ -151,6 +151,9 @@ class UA {
 				$obj->full = $obj->browserFull."/".$obj->osFull;
 			}
 			
+			// if OS is Android check to see if this is a tablet. won't work on older UA strings
+			if (($obj->os == 'Android') && !strstr(self::$ua, 'Mobile')) {
+				$obj->isTablet = true;
 			}
 			
 			// figure out the device name for the browser, if possible
