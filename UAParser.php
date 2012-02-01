@@ -163,6 +163,13 @@ class UA {
 				$obj->isTablet = true;
 			}
 			
+			// some select mobile OSs report a desktop browser. make sure we note they're mobile
+			$mobileOSs = array('Windows Phone 6.5','Windows CE','Symbian OS');
+			if (in_array($obj->os,$mobileOSs)) {
+				$obj->isMobile       = true;
+				$obj->isMobileDevice = true;
+			}
+			
 			}
 			
 			// record if this is a spider
