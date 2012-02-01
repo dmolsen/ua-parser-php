@@ -219,6 +219,7 @@ user_agent_parsers:
     family_replacement: 'Nokia Services (WAP) Browser' 
   - regex: '(NokiaBrowser)/(\d+)\.(\d+).(\d+)\.(\d+)'
   - regex: '(NokiaBrowser)/(\d+)\.(\d+).(\d+)'
+  - regex: '(NokiaBrowser)/(\d+)\.(\d+)'
   - regex: '(BrowserNG)/(\d+)\.(\d+).(\d+)'
     family_replacement: 'NokiaBrowser'
   - regex: '(Series60)/5\.0'
