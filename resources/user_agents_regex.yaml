@@ -172,8 +172,9 @@ user_agent_parsers:
   #### END MAIN CASES ####
 
   #### SPECIAL CASES ####
+  - regex: '(Obigo)InternetBrowser'
+  - regex: '(Obigo)\-Browser'
   - regex: '(Obigo|OBIGO)[^\d]*(\d+)(?:.(\d+))?'
-    family_replacement: 'Obigo'
 
   - regex: '(MAXTHON|Maxthon) (\d+)\.(\d+)'
     family_replacement: 'Maxthon'
