@@ -163,7 +163,7 @@ user_agent_parsers:
   # desktop mode
   # http://www.anandtech.com/show/3982/windows-phone-7-review
   - regex: '(MSIE) (\d+)\.(\d+).*XBLWP7'
-    family_replacement: 'IE Mobile'
+    family_replacement: 'IE Large Screen'
 
   # AFTER THE EDGE CASES ABOVE!
   - regex: '(Firefox)/(\d+)\.(\d+)\.(\d+)'
