@@ -135,12 +135,7 @@ class UA {
 					break;
 				}
 			}
-			
-			// if this is a mobile browser make sure mobile device is set to true
-			if ($obj->isMobile) {
-				$obj->isMobileDevice = true; // this is going to catch android devices
-			}
-			
+					
 			// figure out the OS for the browser, if possible
 			if ($osObj = self::osParser()) {
 				$obj = (object) array_merge((array) $obj, (array) $osObj);
@@ -152,6 +147,12 @@ class UA {
 			}
 			
 			// if OS is Android check to see if this is a tablet. won't work on older UA strings
+			// if this is a mobile browser make sure mobile device is set to true
+			if ($obj->isMobile) {
+				$obj->isMobileDevice = true; // this is going to catch android devices
+			} else if ($obj->isMobileDevice) {
+				$obj->isMobile = true;       // this will catch some weird htc devices
+			}
 			if (($obj->os == 'Android') && !strstr(self::$ua, 'Mobile')) {
 				$obj->isTablet = true;
 			}
