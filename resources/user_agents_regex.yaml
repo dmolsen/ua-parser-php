@@ -15,7 +15,7 @@
 ###   - changed the blackberry family to 'blackberry webkit' when it's a webkit browser
 user_agent_parsers:
   #### SPECIAL CASES TOP ####
-
+  
   # must go before Opera
   - regex: '^(Opera)/(\d+)\.(\d+) \(Nintendo Wii'
     family_replacement: 'Wii'
