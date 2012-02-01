@@ -639,6 +639,28 @@ device_parsers:
     device_replacement: 'Lenovo $1'
   - regex: 'Lenovo\_([A-z0-9]+)'
     device_replacement: 'Lenovo $1'
+    
+  ##########
+  # lg
+  ##########
+  - regex: 'LG/([A-z0-9]+)'
+    device_replacement: 'LG $1'
+  - regex: 'LG-LG([A-z0-9]+)'
+    device_replacement: 'LG $1'
+  - regex: 'LGE-LG([A-z0-9]+)'
+    device_replacement: 'LG $1'
+  - regex: 'LGE VX([A-z0-9]+)'
+    device_replacement: 'LG $1'
+  - regex: 'LG ([A-z0-9]+)'
+    device_replacement: 'LG $1'
+  - regex: 'LGE LG\-AX([A-z0-9]+)'
+    device_replacement: 'LG $1'
+  - regex: 'LG\-([A-z0-9]+)'
+    device_replacement: 'LG $1'
+  - regex: 'LGE\-([A-z0-9]+)'
+    device_replacement: 'LG $1'
+  - regex: 'LG([A-z0-9]+)'
+    device_replacement: 'LG $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
