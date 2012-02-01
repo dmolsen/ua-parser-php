@@ -623,6 +623,14 @@ device_parsers:
   ##########
   - regex: 'i\-mate ([A-z0-9]+)'
     device_replacement: 'i-mate $1'
+    
+  ##########
+  # kyocera
+  ##########
+  - regex: 'Kyocera\-([A-z0-9]+)'
+    device_replacement: 'Kyocera $1'
+  - regex: 'KWC\-([A-z0-9]+)'
+    device_replacement: 'Kyocera $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
