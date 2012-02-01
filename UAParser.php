@@ -122,11 +122,7 @@ class UA {
 			}
 			
 			// detect if this is a uiwebview call on iOS
-			if (($obj->browser == 'Mobile Safari') && !strstr(self::$ua,'Safari')) {
-				$obj->isUIWebview = true;
-			} else {
-				$obj->isUIWebview = false;
-			}
+			$obj->isUIWebview = (($obj->browser == 'Mobile Safari') && !strstr(self::$ua,'Safari')) ? true : false;
 			
 			// check to see if this is a mobile browser
 			$obj->isMobile  = false;
