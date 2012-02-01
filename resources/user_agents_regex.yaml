@@ -73,8 +73,11 @@ user_agent_parsers:
   - regex: '(Opera)/9.80.*Version/(\d+)\.(\d+)(?:\.(\d+))?'
 
   # Palm WebOS looks a lot like Safari.
-  - regex: '(webOS)/(\d+)\.(\d+)'
-    family_replacement: 'Palm webOS'
+  - regex: '(webOSBrowser)/(\d+)\.(\d+)'
+  - regex: '(webOS)/\d+\.\d+'
+    family_replacement: 'webOSBrowser'
+  - regex: '(wOSBrowser).+TouchPad/(\d+)\.(\d+)'
+    family_replacement: 'webOS TouchPad'
 
   # LuaKit has no version info.
   # http://luakit.org/projects/luakit/
