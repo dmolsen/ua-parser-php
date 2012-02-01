@@ -20,7 +20,7 @@ user_agent_parsers:
   - regex: '^(Opera)/(\d+)\.(\d+) \(Nintendo Wii'
     family_replacement: 'Wii'
 
-  # must go before Firefox to catch SeaMonkey.
+  # must go before Firefox to catch SeaMonkey/Camino
   - regex: '(SeaMonkey|Camino)/(\d+)\.(\d+)\.?([ab]?\d+[a-z]*)'
   
   # must go before Firefox to catch mobile firefox
