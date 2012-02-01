@@ -271,7 +271,8 @@ user_agent_parsers:
 
   - regex: '(SEMC\-Browser)/(\d+)\.(\d+)'
 
-  - regex: '(Teleca Q7)'
+  - regex: '(Teleca)'
+    family_replacement: 'Teleca Browser'
 
   - regex: '(MSIE) (\d+)\.(\d+)'
     family_replacement: 'IE'
