@@ -661,6 +661,14 @@ device_parsers:
     device_replacement: 'LG $1'
   - regex: 'LG([A-z0-9]+)'
     device_replacement: 'LG $1'
+    
+  ##########
+  # kin
+  ##########
+  - regex: '(KIN)\.One (\d+)\.(\d+)'
+    device_replacement: 'Microsoft $1'
+  - regex: '(KIN)\.Two (\d+)\.(\d+)'
+    device_replacement: 'Microsoft $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
