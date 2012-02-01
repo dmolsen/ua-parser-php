@@ -109,9 +109,6 @@ user_agent_parsers:
 
   - regex: '(WeTab)-Browser'
 
-  - regex: '(wOSBrowser).+TouchPad/(\d+)\.(\d+)'
-    family_replacement: 'webOS TouchPad'
-
   - regex: '(Comodo_Dragon)/(\d+)\.(\d+)\.(\d+)'
     family_replacement: 'Comodo Dragon'
 
