@@ -146,6 +146,11 @@ class UA {
 				$obj->full = $obj->browserFull."/".$obj->osFull;
 			}
 			
+			// figure out the device name for the browser, if possible
+			if ($deviceObj = self::deviceParser()) {
+				$obj = (object) array_merge((array) $obj, (array) $deviceObj);
+			}
+			
 			// if this is a mobile browser make sure mobile device is set to true
 			if ($obj->isMobile) {
 				$obj->isMobileDevice = true; // this is going to catch android devices
@@ -158,9 +163,6 @@ class UA {
 				$obj->isTablet = true;
 			}
 			
-			// figure out the device name for the browser, if possible
-			if ($deviceObj = self::deviceParser()) {
-				$obj = (object) array_merge((array) $obj, (array) $deviceObj);
 			}
 			
 			// record if this is a spider
