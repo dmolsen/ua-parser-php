@@ -585,6 +585,16 @@ device_parsers:
     device_replacement: 'Asus $1'
   - regex: 'ASUS\-([A-z0-9]+)'
     device_replacement: 'Asus $1'
+
+  ##########
+  # Bird
+  ##########
+  - regex: 'BIRD\-([A-z0-9]+)'
+    device_replacement: 'Bird $1'
+  - regex: 'BIRD\.([A-z0-9]+)'
+    device_replacement: 'Bird $1'
+  - regex: 'BIRD ([A-z0-9]+)'
+    device_replacement: 'Bird $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
