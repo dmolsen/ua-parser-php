@@ -197,12 +197,14 @@ user_agent_parsers:
   - regex: '(BonEcho)/(\d+)\.(\d+)\.(\d+)'
     family_replacement: 'Bon Echo'
 
+  - regex: '(iPod);.*Version/(\d+)\.(\d+)'
+    family_replacement: 'Mobile Safari'
   - regex: '(iPod).+Version/(\d+)\.(\d+)\.(\d+)'
     family_replacement: 'Mobile Safari'
-
+  - regex: '(iPhone);.*Version/(\d+)\.(\d+)'
+    family_replacement: 'Mobile Safari'
   - regex: '(iPhone) OS (\d+)_(\d+)(?:_(\d+))?'
     family_replacement: 'Mobile Safari'
-
   - regex: '(iPad).+ OS (\d+)_(\d+)(?:_(\d+))?'
     family_replacement: 'Mobile Safari'
 
