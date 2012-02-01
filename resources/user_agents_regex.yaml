@@ -178,13 +178,11 @@ user_agent_parsers:
 
   - regex: '(MAXTHON|Maxthon) (\d+)\.(\d+)'
     family_replacement: 'Maxthon'
-
   - regex: '(Maxthon|MyIE2|Uzbl|Shiira)'
     v1_replacement: '0'
 
   - regex: '(PLAYSTATION) (\d+)'
     family_replacement: 'PlayStation'
-
   - regex: '(PlayStation Portable)[^\d]+(\d+).(\d+)'
 
   - regex: '(BrowseX) \((\d+)\.(\d+)\.(\d+)'
@@ -292,7 +290,7 @@ os_parsers:
     os_replacement: 'Windows XP'
     
   # ie mobile des ktop mode  
-  # spoofs nt 6.1. must come before windows 7  
+  # spoofs nt 6.1. must come before windows 7
   - regex: '(XBLWP7)'
     os_replacement: 'Windows Phone OS'
     
@@ -496,8 +494,7 @@ device_parsers:
   - regex: 'Android [\d]+\.[\d]+\.[\d]+; [A-z]{2}\-[A-z]{2}\; (.+) Build'
   - regex: 'Android [\d]+\.[\d]+\-update1\; [A-z]{2}\-[A-z]{2}\; (.+) Build'
   - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; (.+) Build'
-  
-
+    
   ##########
   # NOKIA 
   # nokia NokiaN8-00 comes before iphone. sometimes spoofs iphone
