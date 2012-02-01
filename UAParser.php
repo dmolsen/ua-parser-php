@@ -1,7 +1,7 @@
 <?php
 
 /*!
- * ua-parser-php v0.1
+ * ua-parser-php v0.3
  *
  * Copyright (c) 2011-2012 Dave Olsen, http://dmolsen.com
  * Licensed under the MIT license
