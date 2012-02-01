@@ -617,6 +617,12 @@ device_parsers:
   ##########
   - regex: 'vodafone([A-z0-9]+)'
     device_replacement: 'Huawei Vodafone $1'
+    
+  ##########
+  # i-mate
+  ##########
+  - regex: 'i\-mate ([A-z0-9]+)'
+    device_replacement: 'i-mate $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
