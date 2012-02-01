@@ -484,6 +484,12 @@ device_parsers:
   - regex: '(HTC)'
   
   #########
+  # Ericsson - must come before nokia since they also use symbian
+  #########
+  - regex: 'SonyEricsson([A-z0-9]+)/'
+    device_replacement: 'Ericsson $1'
+    
+  #########
   # Android General Device Matching (far from perfect)
   #########
   - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; WOWMobile (.+) Build'
