@@ -95,7 +95,7 @@ class UA {
 			$obj = new stdClass();
 			
 			// build the version numbers for the browser
-			$obj->major  = $regex['v1_replacement'] ? $regex['v1_replacement'] : $matches[2];
+			$obj->major  = isset($regex['v1_replacement']) ? $regex['v1_replacement'] : $matches[2];
 			if (isset($matches[3]) || isset($regex['v2_replacement'])) {
 				$obj->minor = isset($regex['v2_replacement']) ? $regex['v2_replacement'] : $matches[3];
 			}
@@ -192,16 +192,16 @@ class UA {
 			if (preg_match("/".str_replace("/","\/",$osRegex['regex'])."/",self::$ua,$matches)) {
 				
 				// basic properties
-				$osObj->osMajor  = $osRegex['os_v1_replacement'] ? $osRegex['os_v1_replacement'] : $matches[2];
-				$osObj->osMinor  = $osRegex['os_v2_replacement'] ? $osRegex['os_v2_replacement'] : $matches[3];
+				$osObj->osMajor   = isset($osRegex['os_v1_replacement']) ? $osRegex['os_v1_replacement'] : $matches[2];
+				$osObj->osMinor   = isset($osRegex['os_v2_replacement']) ? $osRegex['os_v2_replacement'] : $matches[3];
 				if (isset($matches[4])) {
 					$osObj->osBuild = $matches[4];
 				}
 				if (isset($matches[5])) {
 					$osObj->osRevision = $matches[5];
 				}
-				$osObj->osMinor  = $osRegex['os_v2_replacement'] ? $osRegex['os_v2_replacement'] : $matches[3];
-				$osObj->os       = $osRegex['os_replacement']    ? str_replace("$1",$osObj->osMajor,$osRegex['os_replacement'])  : $matches[1];
+				$osObj->osMinor   = isset($osRegex['os_v2_replacement']) ? $osRegex['os_v2_replacement'] : $matches[3];
+				$osObj->os        = isset($osRegex['os_replacement'])    ? str_replace("$1",$osObj->osMajor,$osRegex['os_replacement'])  : $matches[1];
 				
 				// os version
 				$osObj->osVersion = isset($osObj->osMajor) ? $osObj->osMajor : "";
@@ -234,8 +234,8 @@ class UA {
 			if (preg_match("/".str_replace("/","\/",$deviceRegex['regex'])."/i",self::$ua,$matches)) {
 				
 				// basic properties
-				$deviceObj->deviceMajor  = $deviceRegex['device_v1_replacement'] ? $deviceRegex['device_v1_replacement'] : $matches[2];
-				$deviceObj->deviceMinor  = $deviceRegex['device_v2_replacement'] ? $deviceRegex['device_v2_replacement'] : $matches[3];
+				$deviceObj->deviceMajor  = isset($deviceRegex['device_v1_replacement']) ? $deviceRegex['device_v1_replacement'] : $matches[2];
+				$deviceObj->deviceMinor  = isset($deviceRegex['device_v2_replacement']) ? $deviceRegex['device_v2_replacement'] : $matches[3];
 				$deviceObj->device       = $deviceRegex['device_replacement'] ? str_replace("$1",$matches[1],$deviceRegex['device_replacement']) : str_replace("_"," ",$matches[1]);
 				
 				// device version?
