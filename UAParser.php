@@ -48,12 +48,14 @@ class UA {
 		
 		// if no browser was found check to see if it can be matched at least against a device (e.g. spider, generic feature phone or generic smartphone)
 		if (!$result) {
-			$result = self::deviceParser();
-			if ($result && ($result->device != "Spider")) {
-				$result->isMobile     = true;
-				$result->mobileDevice = true;	
+			if (($result = self::deviceParser()) && ($result->device != 'Spider')) {
+				$result->isMobile       = true;
+				$result->isMobileDevice = true;	
+				$result->uaOriginal     = self::$ua;
+			} else if ($result->device == "Spider") {
+				$result->isSpider       = true;
+				$result->uaOriginal     = self::$ua;
 			}
-			$result->uaOriginal   = self::$ua;
 		}
 		
 		// still false?! see if it's a really dumb feature phone
