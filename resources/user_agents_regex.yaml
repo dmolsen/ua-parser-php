@@ -566,6 +566,12 @@ device_parsers:
   - regex: '(iPhone);'
   
   ##########
+  # Acer
+  ##########
+  - regex: 'acer_([A-z0-9]+)_'
+    device_replacement: 'Acer $1'
+  - regex: 'acer_([A-z0-9]+)_'
+    device_replacement: 'Acer $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
