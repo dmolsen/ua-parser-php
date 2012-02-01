@@ -526,14 +526,23 @@ device_parsers:
     device_replacement: 'BlackBerry $1'
 
   ##########
-  # incomplete!
-  # PALM 
+  # PALM / HP
   ##########
   # some palm devices must come before iphone. sometimes spoofs iphone in ua
   - regex: '(Pre)/(\d+)\.(\d+)'
     device_replacement: 'Palm Pre'
   - regex: '(Pixi)/(\d+)\.(\d+)'
     device_replacement: 'Palm Pixi'
+  - regex: '(Touchpad)/(\d+)\.(\d+)'
+    device_replacement: 'HP Touchpad'
+  - regex: 'HPiPAQ([A-z0-9]+)/(\d+).(\d+)'
+    device_replacement: 'HP iPAQ $1'
+  - regex: 'Palm([A-z0-9]+)'
+    device_replacement: 'Palm $1'
+  - regex: 'Treo([A-z0-9]+)'
+    device_replacement: 'Palm Treo $1'
+  - regex: 'webOS.*(P160UNA)/(\d+).(\d+)'
+    device_replacement: 'HP Veer'
     
   ##########
   # incomplete!
