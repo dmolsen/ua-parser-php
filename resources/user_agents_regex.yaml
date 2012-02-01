@@ -457,24 +457,6 @@ device_parsers:
   # http://en.wikipedia.org/wiki/List_of_HTC_phones
   # this is quickly getting unwieldy
   ##########
-  # SPECIFIC CASES
-  - regex: '(HTC_VDA_V)'
-    device_replacement: 'HTC S710'
-  - regex: '(HTC-P4600)'
-    device_replacement: 'HTC Touch Pro'
-  - regex: '(HTCX06HT)'
-    device_replacement: 'HTC Desire'
-  - regex: '(HTC-A6366)'
-    device_replacement: 'HTC Aria'
-  - regex: 'HTC; (7 Mozart|T8697)'
-    device_replacement: 'HTC 7 Mozart'
-  - regex: '(HTC-ST7377)'
-    device_replacement: 'HTC Touch Pro2'
-  - regex: 'HTC; 7 Trophy'
-    device_replacement: 'HTC 7 Trophy'
-  - regex: 'HTC; HD7'
-    device_replacement: 'HTC HD7'
- 
   # example: Mozilla/5.0 (Linux; U; Android 2.3.2; fr-fr; HTC HD2 Build/FRF91) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1
   - regex: 'HTC ([A-Z][a-z0-9]+) Build'
     device_replacement: 'HTC ($1)'
