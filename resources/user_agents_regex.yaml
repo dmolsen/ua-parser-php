@@ -601,6 +601,16 @@ device_parsers:
   ##########
   - regex: 'Dell ([A-z0-9]+)'
     device_replacement: 'Dell $1'
+    
+  ##########
+  # DoCoMo
+  ##########
+  - regex: 'DoCoMo/2\.0 ([A-z0-9]+)'
+    device_replacement: 'DoCoMo $1'
+  - regex: '([A-z0-9]+)\_W\;FOMA'
+    device_replacement: 'DoCoMo $1'
+  - regex: '([A-z0-9]+)\;FOMA'
+    device_replacement: 'DoCoMo $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
