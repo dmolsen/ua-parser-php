@@ -269,11 +269,7 @@ user_agent_parsers:
   - regex: '(OLPC)/Update()\.(\d+)'
     v1_replacement: '0'
 
-  - regex: '(SamsungSGHi560)'
-    family_replacement: 'Samsung SGHi560'
-
-  - regex: '^(SonyEricssonK800i)'
-    family_replacement: 'Sony Ericsson K800i'
+  - regex: '(SEMC\-Browser)/(\d+)\.(\d+)'
 
   - regex: '(Teleca Q7)'
 
