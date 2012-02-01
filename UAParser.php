@@ -31,7 +31,6 @@ class UA {
 	*
 	* @return {Object}       the result of the user agent parsing
 	*/
-	public function parse() {
 	public function parse($ua = nil) {
 		
 		self::$ua      = ($ua != nil) ? $ua : $_SERVER["HTTP_USER_AGENT"];
