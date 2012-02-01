@@ -167,8 +167,8 @@ user_agent_parsers:
 
   # AFTER THE EDGE CASES ABOVE!
   - regex: '(Firefox)/(\d+)\.(\d+)\.(\d+)'
-
   - regex: '(Firefox)/(\d+)\.(\d+)(pre|[ab]\d+[a-z]*)?'
+  
   #### END MAIN CASES ####
 
   #### SPECIAL CASES ####
