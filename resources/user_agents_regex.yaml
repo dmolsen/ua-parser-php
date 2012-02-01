@@ -678,6 +678,14 @@ device_parsers:
     device_replacement: 'Motorola $1'
   - regex: 'MOT\-([A-z0-9]+)'
     device_replacement: 'Motorola $1'
+    
+  ##########
+  # philips
+  ##########
+  - regex: 'Philips([A-z0-9]+)'
+    device_replacement: 'Philips $1'
+  - regex: 'Philips ([A-z0-9]+)'
+    device_replacement: 'Philips $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
