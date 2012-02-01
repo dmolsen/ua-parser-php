@@ -170,6 +170,9 @@ class UA {
 				$obj->isMobileDevice = true;
 			}
 			
+			if (stristr(self::$ua,"tablet")) {
+				$obj->isTablet       = true;
+				$obj->isMobileDevice = true;
 			}
 			
 			// record if this is a spider
