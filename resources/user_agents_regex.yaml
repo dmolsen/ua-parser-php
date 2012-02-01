@@ -1,18 +1,6 @@
 ### THIS FILE WAS COPIED ON JAN 26 2012.
 ### ORIGINAL IS AT: http://code.google.com/p/ua-parser/source/browse/trunk/resources/user_agent_parser.yaml
-### Since then I have:
-###   - expanded support for Symbia & Nokia Devices, 
-###   - cleaned up some slashies, 
-###   - added Mobile Safari as the family replacement for iOS devices, 
-###   - better support for longer HTC device names
-###   - added feature phones to the device check
-###   - added generic smartphones to the device check
-###   - added AvantGo to the ua check
-###   - tweaked a lot of the nokia checks
-###   - added kindle support to the device section
-###   - added a generic catch for android devices.
-###   - added support for blackberry devices
-###   - changed the blackberry family to 'blackberry webkit' when it's a webkit browser
+### Please review the CHANGELOG to see how this file differs from the original
 user_agent_parsers:
   #### SPECIAL CASES TOP ####
   
