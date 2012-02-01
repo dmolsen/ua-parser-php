@@ -370,7 +370,7 @@ os_parsers:
     os_replacement: 'iOS'
     
   # few more stragglers
-  - regex: '(iPhone|iPad|iPod).*Mac OS X'
+  - regex: '(iPhone|iPad|iPod).*Mac OS X.*Version/(\d+)\.(\d+)'
     os_replacement: 'iOS'
     
   ##########
