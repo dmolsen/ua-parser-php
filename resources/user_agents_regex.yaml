@@ -551,7 +551,7 @@ device_parsers:
   - regex: '(Kindle Fire)'
   - regex: '(Kindle)'
   - regex: '(Silk)/(\d+)\.(\d+)(?:\.([0-9\-]+))?'
-    device_replacement: 'Kindle'
+    device_replacement: 'Kindle Fire'
 
   ##########
   # complete but probably catches spoofs
