@@ -62,11 +62,11 @@ class UA {
 		if (!$result) {
 			if ((strpos(self::$accept,'text/vnd.wap.wml') > 0) || (strpos(self::$accept,'application/vnd.wap.xhtml+xml') > 0) || isset($_SERVER['HTTP_X_WAP_PROFILE']) || isset($_SERVER['HTTP_PROFILE'])) {
 				$result = new stdClass();
-				$result->device       = "Generic Feature Phone";
-				$result->deviceFull   = "Generic Feature Phone";
-				$result->isMobile     = true;
-				$result->mobileDevice = true;
-				$result->uaOriginal   = self::$ua;
+				$result->device         = "Generic Feature Phone";
+				$result->deviceFull     = "Generic Feature Phone";
+				$result->isMobile       = true;
+				$result->isMobileDevice = true;
+				$result->uaOriginal     = self::$ua;
 			}
 		}
 
