@@ -137,6 +137,26 @@ user_agent_parsers:
   # Browser major_version.minor_version (space instead of slash)
   - regex: '(iCab|Lunascape|Opera|Android|Jasmine|Polaris|BREW) (\d+)\.(\d+)\.?(\d+)?'
   
+  # weird android UAs
+  - regex: '(Android) Donut'
+    v1_replacement: '1'
+    v2_replacement: '2'
+    
+  - regex: '(Android) Eclair'
+    v1_replacement: '2'
+    v2_replacement: '1'
+    
+  - regex: '(Android) Froyo'
+    v1_replacement: '2'
+    v2_replacement: '2'
+    
+  - regex: '(Android) Gingerbread'
+    v1_replacement: '2'
+    v2_replacement: '3'
+    
+  - regex: '(Android) Honeycomb'
+    v1_replacement: '3'
+  
   # IE Mobile
   - regex: '(IEMobile)[ /](\d+)\.(\d+)'
     family_replacement: 'IE Mobile'
