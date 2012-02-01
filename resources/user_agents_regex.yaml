@@ -569,6 +569,14 @@ device_parsers:
     device_replacement: 'Acer $1'
   - regex: 'acer_([A-z0-9]+)_'
     device_replacement: 'Acer $1'
+
+  ##########
+  # Amoi
+  ##########
+  - regex: 'Amoi\-([A-z0-9]+)'
+    device_replacement: 'Amoi $1'
+  - regex: 'AMOI\-([A-z0-9]+)'
+    device_replacement: 'Amoi $1'
   # Generic Smart Phone
   ##########
   - regex: '(hiptop|avantgo|plucker|xiino|blazer|elaine|up.browser|up.link|mmp|smartphone|midp|wap|vodafone|o2|pocket|mobile|pda)'
