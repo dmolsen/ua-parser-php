@@ -222,7 +222,7 @@ class UA {
 				$osObj->osVersion = isset($osObj->osRevision) ? $osObj->osVersion.'.'.$osObj->osRevision : $osObj->osVersion; 
 				
 				// prettify
-				$osObj->osFull = $osObj->os." ".$osObj->osVersion;
+				$osObj->osFull    = $osObj->os." ".$osObj->osVersion;
 				
 				return $osObj;
 			}
