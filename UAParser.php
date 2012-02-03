@@ -33,9 +33,9 @@ class UA {
 	*
 	* @return {Object}       the result of the user agent parsing
 	*/
-	public function parse($ua = nil) {
+	public function parse($ua = NULL) {
 		
-		self::$ua      = ($ua != nil) ? $ua : $_SERVER["HTTP_USER_AGENT"];
+		self::$ua      = $ua ? $ua : $_SERVER["HTTP_USER_AGENT"];
 		self::$accept  = $_SERVER["HTTP_ACCEPT"];
 		self::$regexes = Spyc::YAMLLoad(__DIR__."/resources/user_agents_regex.yaml");
 		
