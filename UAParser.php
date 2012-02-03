@@ -33,9 +33,9 @@ class UA {
 	*
 	* @return {Object}       the result of the user agent parsing
 	*/
-	public function parse($ua = nil) {
+	public function parse($ua = NULL) {
 		
-		self::$ua      = ($ua != nil) ? $ua : $_SERVER["HTTP_USER_AGENT"];
+		self::$ua      = $ua ? $ua : $_SERVER["HTTP_USER_AGENT"];
 		self::$accept  = $_SERVER["HTTP_ACCEPT"];
 		self::$regexes = Spyc::YAMLLoad(__DIR__."/resources/user_agents_regex.yaml");
 		
@@ -92,10 +92,18 @@ class UA {
 		
 		// tests the supplied regex against the user agent
 		if (preg_match("/".str_replace("/","\/",$regex['regex'])."/",self::$ua,$matches)) {
-			
-			// build the obj that will be returned
-			$obj = new stdClass();
-			
+
+			// Define safe parser defaults
+			$defaults = array(
+				'isMobileDevice' => false,
+				'isMobile' => false,
+				'isSpider' => false,
+				'isTablet' => false,
+				'isComputer' => true,
+			);
+			// build the obj that will be returned starting with defaults
+			$obj = (object) $defaults;
+
 			// build the version numbers for the browser
 			$obj->major  = isset($regex['v1_replacement']) ? $regex['v1_replacement'] : $matches[2];
 			if (isset($matches[3]) || isset($regex['v2_replacement'])) {
@@ -109,7 +117,7 @@ class UA {
 			}
 			
 			// pull out the browser family. replace the version number if necessary
-			$obj->browser = $regex['family_replacement'] ? str_replace("$1",$obj->major,$regex['family_replacement']) : $matches[1];
+			$obj->browser = isset($regex['family_replacement']) ? str_replace("$1",$obj->major,$regex['family_replacement']) : $matches[1];
 			
 			// set-up a clean version number
 			$obj->version = isset($obj->major) ? $obj->major : "";
@@ -127,7 +135,6 @@ class UA {
 			$obj->isUIWebview = (($obj->browser == 'Mobile Safari') && !strstr(self::$ua,'Safari')) ? true : false;
 			
 			// check to see if this is a mobile browser
-			$obj->isMobile  = false;
 			$mobileBrowsers = array("Firefox Mobile","Opera Mobile","Opera Mini","Mobile Safari","webOS","IE Mobile","Playstation Portable",
 			                        "Nokia","Blackberry","Palm","Silk","Android","Maemo","Obigo","Netfront","AvantGo","Teleca","SEMC-Browser",
 			                        "Bolt","Iris","UP.Browser","Symphony","Minimo","Bunjaloo","Jasmine","Dolfin","Polaris","BREW");
@@ -178,7 +185,7 @@ class UA {
 			}
 			
 			// record if this is a spider
-			$obj->isSpider = ($obj->device == "Spider") ? true : false;
+			$obj->isSpider = (isset($obj->device) && $obj->device == "Spider") ? true : false;
 			
 			// record if this is a computer
 			$obj->isComputer = (!$obj->isMobile && !$obj->isSpider && !$obj->isMobileDevice) ? true : false;
