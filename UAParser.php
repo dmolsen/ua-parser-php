@@ -109,7 +109,7 @@ class UA {
 			}
 			
 			// pull out the browser family. replace the version number if necessary
-			$obj->browser = $regex['family_replacement'] ? str_replace("$1",$obj->major,$regex['family_replacement']) : $matches[1];
+			$obj->browser = isset($regex['family_replacement']) ? str_replace("$1",$obj->major,$regex['family_replacement']) : $matches[1];
 			
 			// set-up a clean version number
 			$obj->version = isset($obj->major) ? $obj->major : "";
