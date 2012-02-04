@@ -2,7 +2,13 @@ THIS CHANGELOG IS AN ATTEMPT TO DOCUMENT CHANGES TO THIS PROJECT.
 SUPER MINOR REVISION NUMBERS WON'T SHOW UP IN GITHUB BUT IT'LL HELP
 ME ORGANIZE WHEN I MADE A SET OF FIXES
 
-UAP-v0.3
+UAP-v0.3.1
+ - FIX: swapped nil for null in parse()
+ - FIX: smarter/saner defaults
+ - FIX: now using isset() for family_replacement
+ - THX: thanks to bryan shelton for these fixes 
+
+UAP-v0.3.0
  - ADD: can now supply a specific UA to be checked
  - ADD: if the UA contains 'tablet' isTablet is marked true
  - ADD: for certain mobile OSs they report a desktop browser. marking them mobile now.
@@ -21,13 +27,13 @@ UAP-v0.3
  ---- FIX: iOS support
  ---- FIX: htc, android, palm/hp, kindle, ios, generic feature phones & spider device checks
 
-UAP-v0.2
+UAP-v0.2.0
  - ADD: added isMobile support
  - ADD: added isTablet support
  - ADD: added isComputer support
  - ADD: added isSpider support
 
-UAP-v0.1
+UAP-v0.1.0
  - The following were changes to user_agents_regex.yaml:
  ---- expanded support for Symbia & Nokia Devices, 
  ---- cleaned up some slashies, 
