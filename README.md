@@ -4,7 +4,9 @@
 utilizes the user agents regex YAML file from ua-parser but otherwise creates its own set of attributes to describe a browser, OS, and device. `ua-parser-php`
 was created as a new browser-detection library for the browser- and feature-detection library [Detector](https://github.com/dmolsen/Detector).
 
-If you want, you can [test ua-parser-php](http://uaparser.dmolsen.com/) with your browser.
+## Demo ##
+
+You can [test ua-parser-php](http://uaparser.dmolsen.com/) with your browser.
 
 ## Usage ##
 
@@ -91,9 +93,9 @@ If you want to grab a copy of the YAML data from ua-parser each night you can us
 
     ?>
 
-**NOTE:** This will overwrite some changes I've made to the `user_agents_regex.yaml` file included with the `ua-parser-php` distribution.
+**NOTE:** This will overwrite quite a few changes I've made to the `user_agents_regex.yaml` file included with the `ua-parser-php` distribution.
 
 
 ## Credits ##
 
-Thanks to the ua-parser team for making the YAML file available for others to build upon.
+Thanks to the [ua-parser team](http://code.google.com/p/ua-parser/people/list) for making the YAML file available for others to build upon. Thanks to Bryan Shelton for some fixes.
