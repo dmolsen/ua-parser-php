@@ -55,6 +55,7 @@ class UA {
 				$result->isMobileDevice = true;	
 				$result->uaOriginal     = self::$ua;
 			} else if ($result->device == "Spider") {
+				$result->isMobile       = false;
 				$result->isSpider       = true;
 				$result->uaOriginal     = self::$ua;
 			}
