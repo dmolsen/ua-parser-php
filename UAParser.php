@@ -152,7 +152,7 @@ class UA {
 			}
 			
 			// create an attribute combinining browser and os
-			if ($obj->osFull) {
+			if (isset($obj->osFull) && $obj->osFull) {
 				$obj->full = $obj->browserFull."/".$obj->osFull;
 			}
 			
@@ -169,13 +169,13 @@ class UA {
 			}
 			
 			// if OS is Android check to see if this is a tablet. won't work on UA strings less than Android 3.0
-			if (($obj->os == 'Android') && !strstr(self::$ua, 'Mobile')) {
+			if ((isset($obj->os) && $obj->os == 'Android') && !strstr(self::$ua, 'Mobile')) {
 				$obj->isTablet = true;
 			}
 			
 			// some select mobile OSs report a desktop browser. make sure we note they're mobile
 			$mobileOSs = array('Windows Phone 6.5','Windows CE','Symbian OS');
-			if (in_array($obj->os,$mobileOSs)) {
+			if (isset($obj->os) && in_array($obj->os,$mobileOSs)) {
 				$obj->isMobile       = true;
 				$obj->isMobileDevice = true;
 			}
