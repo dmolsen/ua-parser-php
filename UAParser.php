@@ -259,6 +259,11 @@ class UA {
 		foreach ($deviceRegexes as $deviceRegex) {
 			if (preg_match("/".str_replace("/","\/",$deviceRegex['regex'])."/i",self::$ua,$matches)) {
 				
+				// Make sure matches 2 and 3 are at least set to null for setting
+				// Major and Minor defaults
+				if (!isset($matches[2])) { $matches[2] = null; }
+				if (!isset($matches[3])) { $matches[3] = null; }
+
 				// basic properties
 				$deviceObj->deviceMajor  = isset($deviceRegex['device_v1_replacement']) ? $deviceRegex['device_v1_replacement'] : $matches[2];
 				$deviceObj->deviceMinor  = isset($deviceRegex['device_v2_replacement']) ? $deviceRegex['device_v2_replacement'] : $matches[3];
