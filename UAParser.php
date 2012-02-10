@@ -213,6 +213,11 @@ class UA {
 		foreach ($osRegexes as $osRegex) {
 			if (preg_match("/".str_replace("/","\/",$osRegex['regex'])."/",self::$ua,$matches)) {
 				
+				// Make sure matches 2 and 3 are at least set to null for setting
+				// Major and Minor defaults
+				if (!isset($matches[2])) { $matches[2] = null; }
+				if (!isset($matches[3])) { $matches[3] = null; }
+
 				// basic properties
 				$osObj->osMajor   = isset($osRegex['os_v1_replacement']) ? $osRegex['os_v1_replacement'] : $matches[2];
 				$osObj->osMinor   = isset($osRegex['os_v2_replacement']) ? $osRegex['os_v2_replacement'] : $matches[3];
@@ -222,9 +227,8 @@ class UA {
 				if (isset($matches[5])) {
 					$osObj->osRevision = $matches[5];
 				}
-				$osObj->osMinor   = isset($osRegex['os_v2_replacement']) ? $osRegex['os_v2_replacement'] : $matches[3];
 				$osObj->os        = isset($osRegex['os_replacement'])    ? str_replace("$1",$osObj->osMajor,$osRegex['os_replacement'])  : $matches[1];
-				
+
 				// os version
 				$osObj->osVersion = isset($osObj->osMajor) ? $osObj->osMajor : "";
 				$osObj->osVersion = isset($osObj->osMinor) ? $osObj->osVersion.'.'.$osObj->osMinor : $osObj->osVersion;
