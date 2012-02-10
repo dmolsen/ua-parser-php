@@ -55,6 +55,7 @@ class UA {
 				$result->isMobileDevice = true;	
 				$result->uaOriginal     = self::$ua;
 			} else if ($result->device == "Spider") {
+				$result->isMobile       = false;
 				$result->isSpider       = true;
 				$result->uaOriginal     = self::$ua;
 			}
@@ -151,7 +152,7 @@ class UA {
 			}
 			
 			// create an attribute combinining browser and os
-			if ($obj->osFull) {
+			if (isset($obj->osFull) && $obj->osFull) {
 				$obj->full = $obj->browserFull."/".$obj->osFull;
 			}
 			
@@ -168,13 +169,13 @@ class UA {
 			}
 			
 			// if OS is Android check to see if this is a tablet. won't work on UA strings less than Android 3.0
-			if (($obj->os == 'Android') && !strstr(self::$ua, 'Mobile')) {
+			if ((isset($obj->os) && $obj->os == 'Android') && !strstr(self::$ua, 'Mobile')) {
 				$obj->isTablet = true;
 			}
 			
 			// some select mobile OSs report a desktop browser. make sure we note they're mobile
 			$mobileOSs = array('Windows Phone 6.5','Windows CE','Symbian OS');
-			if (in_array($obj->os,$mobileOSs)) {
+			if (isset($obj->os) && in_array($obj->os,$mobileOSs)) {
 				$obj->isMobile       = true;
 				$obj->isMobileDevice = true;
 			}
@@ -212,6 +213,11 @@ class UA {
 		foreach ($osRegexes as $osRegex) {
 			if (preg_match("/".str_replace("/","\/",$osRegex['regex'])."/",self::$ua,$matches)) {
 				
+				// Make sure matches 2 and 3 are at least set to null for setting
+				// Major and Minor defaults
+				if (!isset($matches[2])) { $matches[2] = null; }
+				if (!isset($matches[3])) { $matches[3] = null; }
+
 				// basic properties
 				$osObj->osMajor   = isset($osRegex['os_v1_replacement']) ? $osRegex['os_v1_replacement'] : $matches[2];
 				$osObj->osMinor   = isset($osRegex['os_v2_replacement']) ? $osRegex['os_v2_replacement'] : $matches[3];
@@ -221,9 +227,8 @@ class UA {
 				if (isset($matches[5])) {
 					$osObj->osRevision = $matches[5];
 				}
-				$osObj->osMinor   = isset($osRegex['os_v2_replacement']) ? $osRegex['os_v2_replacement'] : $matches[3];
 				$osObj->os        = isset($osRegex['os_replacement'])    ? str_replace("$1",$osObj->osMajor,$osRegex['os_replacement'])  : $matches[1];
-				
+
 				// os version
 				$osObj->osVersion = isset($osObj->osMajor) ? $osObj->osMajor : "";
 				$osObj->osVersion = isset($osObj->osMinor) ? $osObj->osVersion.'.'.$osObj->osMinor : $osObj->osVersion;
@@ -254,6 +259,11 @@ class UA {
 		foreach ($deviceRegexes as $deviceRegex) {
 			if (preg_match("/".str_replace("/","\/",$deviceRegex['regex'])."/i",self::$ua,$matches)) {
 				
+				// Make sure matches 2 and 3 are at least set to null for setting
+				// Major and Minor defaults
+				if (!isset($matches[2])) { $matches[2] = null; }
+				if (!isset($matches[3])) { $matches[3] = null; }
+
 				// basic properties
 				$deviceObj->deviceMajor  = isset($deviceRegex['device_v1_replacement']) ? $deviceRegex['device_v1_replacement'] : $matches[2];
 				$deviceObj->deviceMinor  = isset($deviceRegex['device_v2_replacement']) ? $deviceRegex['device_v2_replacement'] : $matches[3];
