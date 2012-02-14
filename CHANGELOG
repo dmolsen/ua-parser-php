@@ -2,6 +2,11 @@ THIS CHANGELOG IS AN ATTEMPT TO DOCUMENT CHANGES TO THIS PROJECT.
 SUPER MINOR REVISION NUMBERS WON'T SHOW UP IN GITHUB BUT IT'LL HELP
 ME ORGANIZE WHEN I MADE A SET OF FIXES
 
+UAP-v1.1.0
+ - FIX: a number of fixes from bryan shelton
+ - The following were changes to user_agents_regex.yaml:
+ ---- ADD: support for Chrome Mobile
+
 UAP-v1.0.0
  - just because i don't expect to update this anytime soon and ppl report it's working
 
