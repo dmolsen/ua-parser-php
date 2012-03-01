@@ -109,6 +109,9 @@ user_agent_parsers:
   - regex: '(Symphony) (\d+).(\d+)'
   
   - regex: 'Minimo'
+  
+  - regex: '(CrMo)/(\d+)\.(\d+)\.(\d+)\.(\d+)'
+    family_replacement: 'Chrome Mobile'
 
   #### END SPECIAL CASES TOP ####
 
@@ -321,6 +324,7 @@ os_parsers:
   # can actually detect rooted android os. do we care?
   ##########
   - regex: '(Android) (\d+)\.(\d+)(?:[.\-]([a-z0-9]+))?'
+  - regex: '(Android)\-(\d+)\.(\d+)(?:[.\-]([a-z0-9]+))?'
   
   - regex: '(Android) Donut'
     os_v1_replacement: '1'
@@ -486,10 +490,10 @@ device_parsers:
   #########
   # Android General Device Matching (far from perfect)
   #########
-  - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; WOWMobile (.+) Build'
-  - regex: 'Android [\d]+\.[\d]+\.[\d]+; [A-z]{2}\-[A-z]{2}\; (.+) Build'
-  - regex: 'Android [\d]+\.[\d]+\-update1\; [A-z]{2}\-[A-z]{2}\; (.+) Build'
-  - regex: 'Android [\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; (.+) Build'
+  - regex: 'Android[\- ][\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; WOWMobile (.+) Build'
+  - regex: 'Android[\- ][\d]+\.[\d]+\.[\d]+; [A-z]{2}\-[A-z]{2}\; (.+) Build'
+  - regex: 'Android[\- ][\d]+\.[\d]+\-update1\; [A-z]{2}\-[A-z]{2}\; (.+) Build'
+  - regex: 'Android[\- ][\d]+\.[\d]+\; [A-z]{2}\-[A-z]{2}\; (.+) Build'
     
   ##########
   # NOKIA 
