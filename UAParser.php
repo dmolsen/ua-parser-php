@@ -24,7 +24,7 @@ if (!function_exists('json_decode') || !function_exists('json_encode')) {
 }
 
 // load spyc as a YAML loader
-require(__DIR__."/lib/spyc-0.5/spyc.php");
+require_once(__DIR__."/lib/spyc-0.5/spyc.php");
 
 class UA {
 	
