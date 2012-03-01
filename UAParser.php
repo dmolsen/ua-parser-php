@@ -17,6 +17,12 @@
  *
  */
 
+// address 5.2 compatibility
+if (!defined('__DIR__')) define('__DIR__', dirname(__FILE__));
+if (!function_exists('json_decode') || !function_exists('json_encode')) {
+	require_once(__DIR__."/lib/json/jsonwrapper.php");
+}
+
 // load spyc as a YAML loader
 require(__DIR__."/lib/spyc-0.5/spyc.php");
 
