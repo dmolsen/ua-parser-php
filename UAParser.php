@@ -39,7 +39,7 @@ class UA {
 	*
 	* @return {Object}       the result of the user agent parsing
 	*/
-	public function parse($ua = NULL) {
+	public static function parse($ua = NULL) {
 		
 		self::$ua      = $ua ? $ua : $_SERVER["HTTP_USER_AGENT"];
 		self::$accept  = $_SERVER["HTTP_ACCEPT"];
@@ -95,7 +95,7 @@ class UA {
 	*
 	* @return {Object}       the result of the user agent parsing
 	*/
-	private function uaParser($regex) {
+	private static function uaParser($regex) {
 		
 		// tests the supplied regex against the user agent
 		if (preg_match("/".str_replace("/","\/",$regex['regex'])."/",self::$ua,$matches)) {
@@ -209,7 +209,7 @@ class UA {
 	*
 	* @return {Object}       the result of the os parsing
 	*/
-	private function osParser() {
+	private static function osParser() {
 		
 		// build the obj that will be returned
 		$osObj = new stdClass();
@@ -255,7 +255,7 @@ class UA {
 	*
 	* @return {Object}       the result of the device parsing
 	*/
-	private function deviceParser() {
+	private static function deviceParser() {
 		
 		// build the obj that will be returned
 		$deviceObj = new stdClass();
@@ -313,7 +313,7 @@ class UA {
 	/**
 	* Logs the user agent info
 	*/
-	private function log($data) {
+	private static function log($data) {
 		if (!$data) {
 			$data = new stdClass();
 			$data->ua = self::$ua;
@@ -327,7 +327,7 @@ class UA {
 	/**
 	* Gets the latest user agent. Back-ups the old version first. it will fail silently if something is wrong...
 	*/
-	public function get() {
+	public static function get() {
 		if ($data = @file_get_contents("http://ua-parser.googlecode.com/svn/trunk/resources/user_agent_parser.yaml")) {
 			copy(__DIR__."/resources/user_agents_regex.yaml", __DIR__."/resources/user_agents_regex.".date("Ymdhis").".yaml");
 			$fp = fopen(__DIR__."/resources/user_agents_regex.yaml", "w");
