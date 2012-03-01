@@ -177,6 +177,7 @@ class UA {
 			// if OS is Android check to see if this is a tablet. won't work on UA strings less than Android 3.0
 			if ((isset($obj->os) && $obj->os == 'Android') && !strstr(self::$ua, 'Mobile')) {
 				$obj->isTablet = true;
+				$obj->isMobile = false;
 			}
 			
 			// some select mobile OSs report a desktop browser. make sure we note they're mobile
@@ -189,6 +190,7 @@ class UA {
 			if (stristr(self::$ua,"tablet")) {
 				$obj->isTablet       = true;
 				$obj->isMobileDevice = true;
+				$obj->isMobile       = false;
 			}
 			
 			// record if this is a spider
