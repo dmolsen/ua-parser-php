@@ -110,8 +110,12 @@ user_agent_parsers:
   
   - regex: 'Minimo'
   
+  # Chrome Mobile
   - regex: '(CrMo)/(\d+)\.(\d+)\.(\d+)\.(\d+)'
     family_replacement: 'Chrome Mobile'
+
+  # UC Browser
+  - regex: '(UC Browser)(\d+)\.(\d+)\.(\d+)'
 
   #### END SPECIAL CASES TOP ####
 

@@ -2,6 +2,10 @@ THIS CHANGELOG IS AN ATTEMPT TO DOCUMENT CHANGES TO THIS PROJECT.
 SUPER MINOR REVISION NUMBERS WON'T SHOW UP IN GITHUB BUT IT'LL HELP
 ME ORGANIZE WHEN I MADE A SET OF FIXES
 
+UAP-v1.2.2
+ - The following were changes to user_agents_regex.yaml:
+ ---- ADD: support for UC Browser
+
 UAP-v1.2.1
  - The following were changes to user_agents_regex.yaml:
  ---- ADD: support for android 4 user agents that have a dash in them
