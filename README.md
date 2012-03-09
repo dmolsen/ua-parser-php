@@ -64,10 +64,10 @@ Straightforward:
         * Some other generic boolean options
         */
 
-	     print $result->isMobile;
+       print $result->isMobile;
        // -> (would return true if the browser met the criteria of a mobile browser based on the user agent information)
 
-	     print $result->isMobileDevice;
+       print $result->isMobileDevice;
        // -> (would return true if the device met the criteria of a mobile device based on the user agent information)
 
        print $result->isTablet;
@@ -79,7 +79,7 @@ Straightforward:
        print $result->isComputer;
        // -> (would return true if the device was a computer according to the user agent information)
 
-		   print $result->isUIWebview;
+       print $result->isUIWebview;
        // -> (would return true if the user agent was from a uiwebview in ios)
 
     ?>
